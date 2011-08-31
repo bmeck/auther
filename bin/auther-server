@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+var service = new (require('../lib/service').WebService)({
+  auth: {
+    service: {realm: 'auther-app-name'},
+    remoteAdmin: false
+  },
+  admins: [{
+    username: 'root',
+    password: 'mypassword',
+    email: 'void@void'
+  }]
+}, function(err) {
+  if(err) throw err;
+  var server = require('http').createServer(function() {
+    service.handle.apply(service, arguments);
+  })
+  server.listen(8080);
+  console.log('auther server now listening on',server.address().port);
+});

@@ -1,0 +1,9 @@
+{
+  "name": "auther",
+  "description": "token and login based authentication server",
+  "author": "bradleymeck",
+  "dependencies": {
+    "express": "2.4.x",
+    "resourcer": "0.1.x"
+  }
+}
